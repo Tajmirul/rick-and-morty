@@ -2,6 +2,7 @@ import { useQuery } from '@apollo/client';
 import { FC } from 'react';
 import { Link } from 'react-router-dom';
 import { SwiperSlide } from 'swiper/react';
+import { Helmet } from 'react-helmet';
 import { GET_CHARACTERS, GET_EPISODES, GET_LOCATIONS } from 'gqlQueries/query';
 import { GetCharResponse, GetEpisodeResponse, GetLocationResponse } from 'types/response';
 import Cart from 'components/Cart';
@@ -22,6 +23,9 @@ const Home: FC = () => {
 
     return (
         <>
+            <Helmet>
+                <title>The Rick And Morty Wiki</title>
+            </Helmet>
             <div className="bg-[#2A3E84] blur-[78px] h-[356px] w-[356px] rounded-full absolute top-0 right-0 translate-x-1/2 -translate-y-1/2 pointer-events-none"></div>
             <div className="bg-[#2A3E84] blur-[78px] h-[178px] w-[356px] rounded-[150px_150px_0_0] absolute bottom-0 left-0 -translate-x-1/2 -z-[1] pointer-events-none"></div>
 

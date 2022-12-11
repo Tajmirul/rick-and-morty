@@ -22,7 +22,6 @@ const SearchBox: FC = () => {
 
     const submitHandler = (e: FormEvent<HTMLFormElement>): void => {
         e.preventDefault();
-        console.log('submit');
         navigate(`/casts?q=${state.value}`);
     };
 

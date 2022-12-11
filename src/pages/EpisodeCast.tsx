@@ -1,7 +1,8 @@
+import { FC } from 'react';
 import { useQuery } from '@apollo/client';
+import { Helmet } from 'react-helmet';
 import CommonCasts from 'components/CommonCasts';
 import { GET_EPISODE_CHARACTERS } from 'gqlQueries/query';
-import { FC } from 'react';
 import { useParams, useSearchParams } from 'react-router-dom';
 import { Character } from 'types/character';
 import { Pagination } from 'types/response';
@@ -22,7 +23,12 @@ const EpisodeCasts: FC = () => {
     const characters: Character[] = data?.episode?.characters;
     const pagination: Pagination = data?.episode?.info;
 
-    return <CommonCasts characters={characters} loading={loading} pagination={pagination} />;
+    return (
+        <>
+            <Helmet>{data?.episode?.name && <title>{data?.episode?.name}</title>}</Helmet>
+            <CommonCasts characters={characters} loading={loading} pagination={pagination} />;
+        </>
+    );
 };
 
 export default EpisodeCasts;

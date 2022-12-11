@@ -1,5 +1,6 @@
 import { useQuery } from '@apollo/client';
 import CommonCasts from 'components/CommonCasts';
+import { Helmet } from 'react-helmet';
 import { GET_CHARACTERS } from 'gqlQueries/query';
 import { FC } from 'react';
 import { useSearchParams } from 'react-router-dom';
@@ -21,7 +22,14 @@ const Casts: FC = () => {
     const characters: Character[] = data?.characters?.results;
     const pagination: Pagination = data?.characters?.info;
 
-    return <CommonCasts characters={characters} loading={loading} pagination={pagination} />;
+    return (
+        <>
+            <Helmet>
+                <title>{q ? `Searching for: ${q}` : 'All Casts'}</title>
+            </Helmet>
+            <CommonCasts characters={characters} loading={loading} pagination={pagination} />;
+        </>
+    );
 };
 
 export default Casts;

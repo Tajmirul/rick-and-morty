@@ -22,6 +22,7 @@ export const GET_EPISODE_CHARACTERS = gql`
     query GetEpisodeCharacters($episodeId: ID!) {
         episode(id: $episodeId) {
             id
+            name
             characters {
                 id
                 name
@@ -35,6 +36,7 @@ export const GET_LOCATION_CHARACTERS = gql`
     query GetLocationCharacters($locationId: ID!) {
         location(id: $locationId) {
             id
+            name
             residents {
                 id
                 name

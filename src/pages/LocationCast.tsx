@@ -1,4 +1,5 @@
 import { useQuery } from '@apollo/client';
+import { Helmet } from 'react-helmet';
 import CommonCasts from 'components/CommonCasts';
 import { GET_LOCATION_CHARACTERS } from 'gqlQueries/query';
 import { FC } from 'react';
@@ -18,7 +19,14 @@ const LocationCasts: FC = () => {
     const characters: Character[] = data?.location?.residents;
     const pagination: Pagination = data?.location?.info;
 
-    return <CommonCasts characters={characters} loading={loading} pagination={pagination} />;
+    console.log();
+
+    return (
+        <>
+            <Helmet>{data?.location?.name && <title>{data?.location?.name}</title>}</Helmet>
+            <CommonCasts characters={characters} loading={loading} pagination={pagination} />;
+        </>
+    );
 };
 
 export default LocationCasts;
