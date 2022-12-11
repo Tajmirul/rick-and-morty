@@ -3,8 +3,116 @@
 @tailwind utilities;
 
 @layer base {
+    :root {
+        --color-primary: theme('colors.primary');
+        --color-secondary: theme('colors.secondary');
+    }
+    body {
+        @apply relative text-gray-100 bg-theme-dark font-tt-travels overflow-x-hidden overflow-y-auto;
+    }
+    body::selection {
+        @apply bg-primary text-gray-50;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        @apply font-tt-travels font-bold text-inherit;
+    }
+
+    input {
+        @apply focus:outline-dashed;
+    }
+
+    /* remove arrow of number input */
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+        @apply appearance-none m-0;
+    }
+    input[type='number'] {
+        -moz-appearance: textfield;
+    }
+    img {
+        @apply inline-block;
+    }
+    a {
+        @apply inline-block;
+    }
+    ::-webkit-scrollbar {
+        @apply w-2 h-1;
+    }
+    /* ::-webkit-scrollbar-track {} */
+    ::-webkit-scrollbar-thumb {
+        background-color: #ffffff55;
+        border-radius: 10px;
+    }
+    .swiper-slide {
+        height: auto;
+    }
+    .swiper-button-prev,
+    .swiper-button-next {
+        @apply absolute top-1/2 -translate-y-1/2 z-[2] bg-gray-100 text-secondary text-xl lg:text-3xl rounded-full w-[40px] lg:w-[50px] h-[40px] lg:h-[50px] inline-flex items-center justify-center;
+    }
+    .swiper-button-prev:disabled,
+    .swiper-button-next:disabled {
+        @apply hidden;
+    }
+    .swiper-button-prev {
+        @apply left-0 xl:-translate-x-1/2;
+    }
+    .swiper-button-next {
+        @apply right-0 xl:translate-x-1/2;
+    }
 }
 @layer components {
+    .heading-primary {
+        @apply leading-[1.2] text-[40px] lg:text-[60px] 2xl:text-[128px] font-bold bg-gradient-to-r from-secondary to-primary bg-clip-text text-transparent;
+    }
+    .heading-primary img {
+        @apply pointer-events-none;
+    }
+
+    .heading-secondary {
+        @apply text-2xl pb-5 xl:pb-9;
+    }
+
+    .theme-cart {
+        clip-path: polygon(0 0, 100% 0, 100% calc(100% - 30px), calc(100% - 30px) 100%, 0 100%);
+        overflow: hidden;
+    }
+
+    /* styling react select */
+    .react-select-container {
+    }
+    .react-select__control {
+        @apply h-full border-none bg-red-500;
+    }
+    .react-select__value-container {
+    }
+    .react-select__indicators {
+    }
+    .react-select__indicator-separator {
+        @apply hidden;
+    }
+    .react-select__menu {
+    }
+    .react-select__menu-list {
+    }
+    .react-select__option {
+    }
 }
 @layer utilities {
+    .container {
+        @apply xl:max-w-[1748px] 2xl:max-w-[1748px] px-[15px];
+    }
+    .container,
+    .container-fluid {
+        @apply mx-auto;
+    }
+    .container-fluid {
+        @apply w-full max-w-full;
+    }
 }

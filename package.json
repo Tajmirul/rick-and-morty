@@ -3,7 +3,8 @@
     "version": "0.1.0",
     "private": true,
     "dependencies": {
-        "@reduxjs/toolkit": "^1.9.1",
+        "@apollo/client": "^3.7.2",
+        "@tailwindcss/line-clamp": "^0.4.2",
         "@testing-library/jest-dom": "^5.14.1",
         "@testing-library/react": "^13.0.0",
         "@testing-library/user-event": "^13.2.1",
@@ -13,11 +14,15 @@
         "@types/react-dom": "^18.0.0",
         "axios": "^1.2.1",
         "formik": "^2.2.9",
+        "graphql": "^16.6.0",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
+        "react-icons": "^4.7.1",
         "react-redux": "^8.0.5",
-        "react-router-dom": "^6.4.4",
+        "react-router-dom": "^6.4.5",
         "react-scripts": "5.0.1",
+        "react-select": "^5.7.0",
+        "swiper": "^8.4.5",
         "typescript": "*",
         "web-vitals": "^2.1.0",
         "yup": "^0.32.11"
@@ -29,7 +34,8 @@
         "eject": "react-scripts eject",
         "lint": "eslint .",
         "lint:fix": "eslint --fix",
-        "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc.json"
+        "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc.json",
+        "schema:download": "npx apollo schema:download --endpoint=https://rickandmortyapi.com/graphql ./src/graphql/schema.json"
     },
     "eslintConfig": {
         "extends": [
